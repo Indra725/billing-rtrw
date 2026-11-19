@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="<%= lang || 'id' %>">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WinMe Matching | <%= company %></title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="/admin/manifest.webmanifest">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<%- include('partials/sidebar', { activePage: 'winme_matching', company }) %>
+<div class="mw">
+  <div class="topbar">
+    <div class="tb-title">
+      <button class="hb-menu" onclick="toggleSidebar()"><i class="bi bi-list"></i></button>
+      <i class="bi bi-link-45deg"></i> WinMe Customer Matching
+    </div>
+    <div class="tb-right">
+      <span class="adm-badge"><i class="bi bi-person-fill"></i> Admin</span>
+      <a href="/admin/logout" class="btn btn-g btn-sm"><i class="bi bi-box-arrow-left"></i> Logout</a>
+    </div>
+  </div>
+  <div class="page">
+
+    <% if (msg) { %>
+      <div class="alert alert-<%= msg.type==='success'?'s':'d' %>">
+        <i class="bi bi-<%= msg.type==='success'?'check-circle':'exclamation-circle' %>"></i> <%= msg.text %>
+      </div>
+    <% } %>
+
+    <div class="card mb16">
+      <div class="card-hd"><h6 style="margin:0"><i class="bi bi-link-45deg"></i> Status Payment Link WinMe</h6></div>
+      <div class="card-bd">
+        <% const linked = customers.filter(c => c.payment_link); const missing = customers.filter(c => !c.payment_link); %>
+        <div class="form-row">
+          <div class="fg"><label class="fl">Total Pelanggan</label><div class="hint"><%= customers.length %></div></div>
+          <div class="fg"><label class="fl">Link Terhubung</label><div class="hint" style="color:var(--success,#10b981)"><%= linked.length %></div></div>
+          <div class="fg"><label class="fl">Belum Ada Link</label><div class="hint" style="color:var(--danger,#ef4444)"><%= missing.length %></div></div>
+          <div class="fg"><label class="fl">Buka Produk Toko</label><div class="hint"><a href="https://winme.id/daffiyanet" target="_blank">https://winme.id/daffiyanet</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb16">
+      <div class="card-hd"><h6 style="margin:0"><i class="bi bi-table"></i> Daftar</h6></div>
+      <div class="card-bd" style="overflow:auto">
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12px">
+          <thead>
+            <tr><th>#</th><th>Nama</th><th>PPPoE</th><th>HP</th><th>Paket</th><th>Harga</th><th>Invoice</th><th>Status</th><th>Link WinMe</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <% customers.forEach((c, i) => { %>
+              <tr>
+                <td><%= c.id %></td>
+                <td><strong><%= c.name %></strong></td>
+                <td><%= c.pppoe_username || '-' %></td>
+                <td><%= c.phone || '-' %></td>
+                <td><%= c.package_name || '-' %></td>
+                <td>Rp <%= Number(c.package_price || 0).toLocaleString('id-ID') %></td>
+                <td>Rp <%= Number(c.last_inv?.amount || 0).toLocaleString('id-ID') %> <small>(<%= c.unpaid_count %> unpaid)</small></td>
+                <td>
+                  <% if (c.status === 'active') { %><span style="color:#10b981">Aktif</span><% } else if (c.status === 'suspended') { %><span style="color:#ef4444">Isolir</span><% } else { %><span style="color:#fbbf24">Nonaktif</span><% } %>
+                </td>
+                <td>
+                  <% if (c.payment_link) { %>
+                    <a href="<%= c.payment_link %>" target="_blank"><code><%= c.payment_link.replace('https://winme.id/','…/') %></code></a>
+                  <% } else { %>
+                    <span style="color:#ef4444">—</span>
+                  <% } %>
+                </td>
+                <td><a class="btn btn-g btn-sm" href="/admin/customers?search=<%= encodeURIComponent(c.name) %>">Edit</a></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
