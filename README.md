@@ -357,4 +357,9 @@ Managed by [Daffiyanet Billing](https://github.com/daffiyanet)
 
 ## Info & donasi
 
-081947215703 — https://wa.me/6281947215703
+**Daffiyanet**
+
+- Donasi / dukung pengembangan: [billingservices.daffiyanet.my.id/donate](https://billingservices.daffiyanet.my.id/donate)
+- E-Wallet (DANA / GoPay / OVO / ShopeePay): **08516163719** a/n **Daffiyanet**
+- QRIS: akan tersedia di halaman donasi di atas (DAFFIYANET, Konter — NMID ID1025401523762)
+- WA: [wa.me/628516163719](https://wa.me/628516163719)
