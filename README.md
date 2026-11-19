@@ -359,7 +359,7 @@ Managed by [Daffiyanet Billing](https://github.com/daffiyanet)
 
 **Daffiyanet**
 
-- Donasi / dukung pengembangan: [billingservices.daffiyanet.my.id/donate](https://billingservices.daffiyanet.my.id/donate)
+- **Halaman donasi:** https://indra725.github.io/donasi/
 - E-Wallet (DANA / GoPay / OVO / ShopeePay): **08516163719** a/n **Daffiyanet**
-- QRIS: akan tersedia di halaman donasi di atas (DAFFIYANET, Konter — NMID ID1025401523762)
+- QRIS: scan dari semua e-wallet / m-banking (DAFFIYANET, Konter — NMID ID1025401523762)
 - WA: [wa.me/628516163719](https://wa.me/628516163719)
