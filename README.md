@@ -8,6 +8,8 @@ Sistem manajemen ISP yang mengintegrasikan **penagihan**, **GenieACS**, **OLT (S
 [![GitHub stars](https://img.shields.io/github/stars/Indra725/billing-rtrw)](https://github.com/Indra725/billing-rtrw/stargazers)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 
+📘 **Tutorial & cara kerja:** lihat [docs/TUTORIAL.md](docs/TUTORIAL.md) untuk panduan arsitektur, alur tagihan/isolir, instalasi, dan penjelasan fitur utama.
+
 ---
 
 ## Daftar fitur (sesuai modul di aplikasi)
